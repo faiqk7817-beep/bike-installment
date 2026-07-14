@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Installment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: lightgray;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        select, input {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #01080f;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <label>Select Your Bike:</label>
+    <select id="bikeSelect">
+        <option value="100000">Bike Yamaha - 100,000</option>
+        <option value="200000">Bike Honda - 200,000</option>
+        <option value="300000">Bike Suzuki - 300,000</option>
+        <option value="400000">Bike United - 400,000</option>
+        <option value="500000">Bike Honda - 500,000</option>
+    </select>
+
+    <br><br>
+
+    <label>How many months? 1 to 12:</label>
+    <input type="number" id="monthsInput" placeholder="Enter months">
+
+    <button onclick="calculateInstallment()">Calculate Payment</button>
+
+    <div id="result"></div>
+
+    <script>
+      function calculateInstallment() {
+       
+        let price = document.getElementById("bikeSelect").value;
+        let months = document.getElementById("monthsInput").value;
+
+        let monthlyPay = price / months;
+
+        let output = "<h1>Installment Details</h1>" +
+                     "Total Bike Price: " + price + "<br>" +
+                     "Total Months: " + months + "<br>" +
+                     "<hr>" +
+                     "<b>Monthly Payment: " + monthlyPay.toFixed(2) + "</b>";
+        
+        document.getElementById("result").innerHTML = output;
+      }
+    </script>
+</body>
+</html>
